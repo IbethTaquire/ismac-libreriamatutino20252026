@@ -20,7 +20,7 @@ public class Libro {
     private Double precio;
 
     //Inyeccion
-    private FacturaDetalle facturaDetalle;
+
     private Categoria categoria;
     private Autor autor;
 
@@ -41,7 +41,6 @@ public class Libro {
         this.portada = portada;
         this.presentacion = presentacion;
         this.precio = precio;
-        this.facturaDetalle = facturaDetalle;
         this.categoria = categoria;
         this.autor = autor;
     }
@@ -158,13 +157,6 @@ public class Libro {
         this.precio = precio;
     }
 
-    public FacturaDetalle getFacturaDetalle() {
-        return facturaDetalle;
-    }
-
-    public void setFacturaDetalle(FacturaDetalle facturaDetalle) {
-        this.facturaDetalle = facturaDetalle;
-    }
 
     public Categoria getCategoria() {
         return categoria;
@@ -199,7 +191,6 @@ public class Libro {
                 ", portada='" + portada + '\'' +
                 ", presentacion='" + presentacion + '\'' +
                 ", precio=" + precio +
-                ", facturaDetalle=" + facturaDetalle +
                 ", categoria=" + categoria +
                 ", autor=" + autor +
                 '}';

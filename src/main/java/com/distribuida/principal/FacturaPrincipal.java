@@ -9,7 +9,13 @@ public class FacturaPrincipal {
 
     public static  void main(String[] ags){
 
-        Cliente cliente = new Cliente(1,"1728171503","Erick","Chiran","Av.Quito Selva Alegre","0985842125","erick@correo.com");
+        Cliente cliente = new Cliente(1,
+                "1728171503",
+                "Erick",
+                "Chiran",
+                "Av.Quito Selva Alegre",
+                "0985842125",
+                "erick@correo.com");
 
         Factura factura = new Factura();
 
