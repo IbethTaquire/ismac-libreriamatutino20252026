@@ -1,6 +1,6 @@
-package com.distribuida.model;
+package com.distribuida.dao;
 
-import com.distribuida.dao.ClienteDAO;
+import com.distribuida.model.Cliente;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
