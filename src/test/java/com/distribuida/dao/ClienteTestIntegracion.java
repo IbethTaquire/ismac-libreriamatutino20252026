@@ -11,6 +11,8 @@ import org.springframework.test.annotation.Rollback;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 //import org.springframework.beans.factory.annotation.Autowired;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -24,6 +26,8 @@ public class ClienteTestIntegracion {
     @Test
     public void findAll(){
         List<Cliente> clientes =clienteDAO.findAll();
+        assertNotNull(clientes);
+        assertTrue(clientes.size() > 0);
         for(Cliente item: clientes){
             System.out.println(item.toString());
         }
@@ -33,32 +37,44 @@ public class ClienteTestIntegracion {
     @Test
     public void faidOne(){
         Optional<Cliente> cliente = clienteDAO.findById(1);
+        assertTrue(cliente.isPresent(),"El cliente con id=1 si existe");
         System.out.println(cliente.toString());
     }
     @Test
     public void save(){
         Cliente cliente = new Cliente (0,"170123456","Juan","Taipe6","Av.por ahi y mas alla ","0987654321","jtaipe@correo.com");
-        clienteDAO.save(cliente);
+        Cliente clienteGuardado = clienteDAO.save(cliente);
+        assertNotNull(clienteGuardado,"El cliente nuevo se guardo correctamente");
+        assertEquals("170123456",clienteGuardado.getCedula());
+        assertEquals("Juan",clienteGuardado.getNombre());
     }
 
 @Test
     public void  update(){
 
-    Optional<Cliente> cliente = clienteDAO.findById(39);
-        cliente.orElse(null).setCedula("17012345777");
+    Optional<Cliente> cliente = clienteDAO.findById(40);
+    assertTrue(cliente.isPresent(),"El cliente existe en DB");
+
+    cliente.orElse(null).setCedula("17012345777");
     cliente.orElse(null).setNombre("Jose");
     cliente.orElse(null).setApellido("Tupiza");
     cliente.orElse(null).setDireccion("Av Quito");
     cliente.orElse(null).setTelefono("09858421257");
     cliente.orElse(null).setCorreo("joset@correo.com");
 
-    clienteDAO.save(cliente.orElse(null));
+    Cliente clienteActualizado = clienteDAO.save(cliente.orElse(null));
+    assertNotNull(clienteActualizado,"El cliente fue actulizado");
+    assertEquals("Jose",clienteActualizado.getNombre());
+    assertEquals("Tupiza",clienteActualizado.getApellido());
+
 }
 
 @Test
     public void delete(){
-        clienteDAO.deleteById(39);
-
+        if(clienteDAO.existsById(40)) {
+            clienteDAO.deleteById(40);
+        }
+        assertFalse(clienteDAO.existsById(40),"El dato fue eliminado");
 }
 
 }
