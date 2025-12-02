@@ -25,7 +25,7 @@ public class ClienteTestIntegracion {
 
     @Test
     public void findAll(){
-        List<Cliente> clientes =clienteDAO.findAll();
+        List<Cliente> clientes=clienteDAO.findAll();
         assertNotNull(clientes);
         assertTrue(clientes.size() > 0);
         for(Cliente item: clientes){
