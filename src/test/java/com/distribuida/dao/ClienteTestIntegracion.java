@@ -40,6 +40,7 @@ public class ClienteTestIntegracion {
         assertTrue(cliente.isPresent(),"El cliente con id=1 si existe");
         System.out.println(cliente.toString());
     }
+
     @Test
     public void save(){
         Cliente cliente = new Cliente (0,"170123456","Juan","Taipe6","Av.por ahi y mas alla ","0987654321","jtaipe@correo.com");
@@ -52,7 +53,7 @@ public class ClienteTestIntegracion {
 @Test
     public void  update(){
 
-    Optional<Cliente> cliente = clienteDAO.findById(40);
+    Optional<Cliente> cliente = clienteDAO.findById(42);
     assertTrue(cliente.isPresent(),"El cliente existe en DB");
 
     cliente.orElse(null).setCedula("17012345777");
@@ -71,10 +72,10 @@ public class ClienteTestIntegracion {
 
 @Test
     public void delete(){
-        if(clienteDAO.existsById(40)) {
-            clienteDAO.deleteById(40);
+        if(clienteDAO.existsById(42)) {
+            clienteDAO.deleteById(42);
         }
-        assertFalse(clienteDAO.existsById(40),"El dato fue eliminado");
+        assertFalse(clienteDAO.existsById(42),"El dato fue eliminado");
 }
 
 }

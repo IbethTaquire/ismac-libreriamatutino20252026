@@ -55,7 +55,7 @@ public class FacturaTestItegracion {
 
         Factura factura = new Factura();
         factura.setIdFactura(0);
-        factura.setNumFactura("FAC-0002");
+        factura.setNumFactura("FAC-0008");
         factura.setFecha(new Date());
         factura.setTotalNeto(100.00);
         factura.setIva(15.00);
@@ -64,18 +64,18 @@ public class FacturaTestItegracion {
 
         Factura facturaGuardada = facturaDAO.save(factura);
         assertNotNull(facturaGuardada);
-        assertEquals("FAC-0006",facturaGuardada.getNumFactura());
+        assertEquals("FAC-0008",facturaGuardada.getNumFactura());
         assertEquals("100.0",facturaGuardada.getTotalNeto());
     }
 
 
     @Test
     public void testFacturaUpdate(){
-        Optional<Cliente> cliente = clienteDAO.findById(2);
+        Optional<Cliente> cliente = clienteDAO.findById(1);
 
         assertTrue(cliente.isPresent());
 
-        Optional<Factura> factura =facturaDAO.findById(87);
+        Optional<Factura> factura =facturaDAO.findById(90);
 
         assertTrue(factura.isPresent());
 
@@ -88,8 +88,8 @@ public class FacturaTestItegracion {
 
         Factura facturaActualizada = facturaDAO.save(factura.orElse(null));
 
-        assertEquals("FAC-00077",facturaActualizada.getNumFactura());
-        assertEquals("200",facturaActualizada.getTotalNeto());
+        assertEquals("FAC-0003",facturaActualizada.getNumFactura());
+        assertEquals("200.0",facturaActualizada.getTotalNeto());
         assertEquals("Juan",facturaActualizada.getCliente().getNombre());
 
 
@@ -97,10 +97,10 @@ public class FacturaTestItegracion {
 
     @Test
     public void testFacturaDelet(){
-        if (facturaDAO.existsById(87)){
-            facturaDAO.deleteById(87);
+        if (facturaDAO.existsById(90)){
+            facturaDAO.deleteById(90);
         }
-        assertFalse(facturaDAO.existsById(87)," El dato fue elimuinado");
+        assertFalse(facturaDAO.existsById(90)," El dato fue elimuinado");
     }
 
 }

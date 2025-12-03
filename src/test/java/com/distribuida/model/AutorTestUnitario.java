@@ -47,6 +47,7 @@ public class AutorTestUnitario {
 
         assertAll("Validar datos del Autor con setters",
                 () ->assertEquals(2,autor.getIdAutor()),
+                () ->assertEquals(2,autor.getIdAutor()),
                 () -> assertEquals("Pepe", autor.getNombre()),
                 () -> assertEquals("Pila", autor.getApellido()),
                 () -> assertEquals("Ecuador", autor.getPais()),
