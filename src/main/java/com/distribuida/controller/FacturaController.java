@@ -1,7 +1,5 @@
 package com.distribuida.controller;
 
-
-import com.distribuida.model.Cliente;
 import com.distribuida.model.Factura;
 import com.distribuida.service.FacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
