@@ -22,7 +22,7 @@ public class FacturaDetalleController {
 
     }
     @GetMapping("/{id}")
-    public ResponseEntity<FacturaDetalle> finOne(@PathVariable int id){
+    public ResponseEntity<FacturaDetalle> findOne(@PathVariable int id){
         Optional<FacturaDetalle> facturaDetalle = facturaDetalleService.findOne(id);
         if(facturaDetalle == null ){
             return ResponseEntity.notFound().build();
