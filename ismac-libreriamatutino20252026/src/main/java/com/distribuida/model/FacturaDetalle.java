@@ -29,11 +29,11 @@ public class FacturaDetalle {
 
 
     public FacturaDetalle() {
-        this.idFacturaDetalle = idFacturaDetalle;
-        this.cantidad = cantidad;
-        this.subtotal = subtotal;
-        this.factura = factura;
-        this.libro = libro;
+//        this.idFacturaDetalle = idFacturaDetalle;
+//        this.cantidad = cantidad;
+//        this.subtotal = subtotal;
+//        this.factura = factura;
+//        this.libro = libro;
     }
 
     public int getIdFacturaDetalle() {

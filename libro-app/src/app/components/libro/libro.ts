@@ -105,7 +105,7 @@ libroSeleccionado:Libro | null = null;
     }).then((result) =>{ 
 
       if(result.isConfirmed){
-        this.libroService.delete(this.libro.idlibro).subscribe(() =>{  
+        this.libroService.delete(this.libro.idLibro).subscribe(() =>{  
           this.findAll();
           this.libro = { } as Libro;
           Swal.fire('Eliminado','El libro ha sido eliminado','success');
@@ -120,7 +120,7 @@ libroSeleccionado:Libro | null = null;
 
   editarLibro(libro: Libro): void {
   this.libro = { ...libro };
-  this.idEditar = libro.idlibro;
+  this.idEditar = libro.idLibro;
   this.editar = true;
 
   setTimeout(() => {
@@ -152,17 +152,16 @@ editarLibroCancelar(form: NgForm): void {
   nombreCompletoAutor(autor:Autor):string{
     return`${autor.nombre } ${autor.apellido}`;
   }
-  abriModal(libro?: Libro):void{
+  abrirModal(libro?: Libro):void{
     if(libro){
       this.libro = {...libro};
       this.editar=true;
-      this.idEditar = libro.idlibro;
+      this.idEditar = libro.idLibro;
     }else{
       this.libro = { } as Libro;
       this.editar = false;
       this.idEditar = null;
     }
-
     this.dialog.open(this.modalLibro, { 
       width:"800px",
       disableClose:true
@@ -187,17 +186,17 @@ subirImagen(): void {
     formData.append('oldImage', this.libro.portada);
   }
 
-  this.http.post<{ ruta: string }>('http://localhost:8080/api/up', formData).subscribe(res => {
+  this.http.post<{ ruta: string }>('http://localhost:8080/api/upload-portada', formData).subscribe(res => {
       this.libro.portada = res.ruta;
       this.imagenAnterior = res.ruta;
+
     });
 
 }
 
-abrirModalDetalle(libro:Libro):void{
+abrirModalDetalles(libro:Libro):void{
   this.libroSeleccionado =libro;
   this.dialog.open(this.modalDetalles,{ width: '500px'});
-
 }
 
 cerrarModal(): void{

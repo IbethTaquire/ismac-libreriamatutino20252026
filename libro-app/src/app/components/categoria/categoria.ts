@@ -51,40 +51,39 @@ export class CategoriaComponent {
   }
 
   update(): void {
-    if (this.idEditar !== null) {
+    if(this.idEditar !== null){
       this.categoriaService.update(this.idEditar, this.categoria).subscribe(() => {
         this.categoria = {} as Categoria;
         this.editar = false;
         this.idEditar = null;
         this.findAll();
-      }); 
+      });
     }
   }
 
-  delete(): void {
+  delete(): void{
     Swal.fire({
-      title: '¿Desea eliminar el dato?',
+      title: '¿Desea eliminar la categoría?',
       text: 'Esta acción no se puede deshacer',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
+      confirmButtonText: 'Si, eliminar',
       cancelButtonText: 'Cancelar',
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6'
-    }).then((result) => {
-      if (result.isConfirmed && this.categoria.idCategoria) {
-        this.categoriaService.delete(this.categoria.idCategoria).subscribe(() => {
+      confirmButtonColor:'#d33',
+      cancelButtonColor:'#3085d6'
+    }).then((result) =>{
+      if(result.isConfirmed){
+        this.categoriaService.delete(this.categoria.idCategoria).subscribe(() =>{
           this.findAll();
           this.categoria = {} as Categoria;
-          Swal.fire('Eliminado', 'La categoría ha sido eliminada', 'success');
+          Swal.fire('Eliminado','La categoría ha sido eliminada','success');
         });
-      } else {
+      }else{
         this.categoria = {} as Categoria;
       }
     });
   }
 
-  // interacción en la página web
   editarCategoria(categoria: Categoria): void {
     this.categoria = { ...categoria };
     this.idEditar = categoria.idCategoria;
@@ -98,7 +97,7 @@ export class CategoriaComponent {
     }, 100);
   }
 
-  editarCategoriaCancelar(form: NgForm): void {
+  cancelarEdicion(form: NgForm): void {
     this.categoria = {} as Categoria;
     this.idEditar = null;
     this.editar = false;
@@ -115,13 +114,9 @@ export class CategoriaComponent {
     }
   }
 
-  applyFilter(event: Event): void {
+  applyFilter(event: Event) {
     const filtro = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtro.trim().toLowerCase();
   }
+
 }
-
-  
-  
-
-

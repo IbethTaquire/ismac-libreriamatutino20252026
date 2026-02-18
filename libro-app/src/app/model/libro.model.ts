@@ -3,10 +3,10 @@ import { Categoria } from "./categoria.model"
 
 export interface Libro{
 
-    idlibro: number
+    idLibro: number
     titulo: string
     editorial: string
-    numPaginas: string
+    numPaginas: number
     edicion: string
     idioma : string
     fechaPublicacion: Date
@@ -16,7 +16,7 @@ export interface Libro{
     numEjemplares: number
     portada: string
     presentacion: string
-    precio : string
+    precio : number
     categoria : Categoria
     autor : Autor
 

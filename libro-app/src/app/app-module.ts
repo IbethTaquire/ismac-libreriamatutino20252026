@@ -53,6 +53,7 @@ import {MatDatepickerModule,} from '@angular/material/datepicker'
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
+    MatDatepickerModule
   ],
   bootstrap: [App]
 })

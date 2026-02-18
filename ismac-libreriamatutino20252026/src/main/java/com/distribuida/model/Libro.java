@@ -23,13 +23,13 @@ public class Libro {
     @Column(name = "idioma" )
     private String idioma;
     @Column(name = "fecha_publicacion" )
-    private Date fechaPublicidad;
+    private Date fechaPublicacion;
     @Column(name = "descripcion" )
     private String descripcion;
     @Column(name = "tipo_pasta" )
     private String tipoPasta;
-    @Column(name = "ISBN" )
-    private String isbn;
+    @Column(name = "isbn" )
+    private String iSBN;
     @Column(name = "num_ejemplares" )
     private int numEjemplares;
     @Column(name = "portada" )
@@ -49,17 +49,17 @@ public class Libro {
 
      public Libro (){ }
 
-    public Libro(int idLibro, String titulo, String editorial, int numPaginas, String edicion, String idioma, Date fechaPublicidad, String descripcion, String tipoPasta, String isbn, int numEjemplares, String portada, String presentacion, Double precio, FacturaDetalle facturaDetalle, Categoria categoria, Autor autor) {
+    public Libro(int idLibro, String titulo, String editorial, int numPaginas, String edicion, String idioma, Date fechaPublicidad, String descripcion, String tipoPasta, String iSBN, int numEjemplares, String portada, String presentacion, Double precio, FacturaDetalle facturaDetalle, Categoria categoria, Autor autor) {
         this.idLibro = idLibro;
         this.titulo = titulo;
         this.editorial = editorial;
         this.numPaginas = numPaginas;
         this.edicion = edicion;
         this.idioma = idioma;
-        this.fechaPublicidad = fechaPublicidad;
+        this.fechaPublicacion = fechaPublicidad;
         this.descripcion = descripcion;
         this.tipoPasta = tipoPasta;
-        this.isbn = isbn;
+        this.iSBN = iSBN;
         this.numEjemplares = numEjemplares;
         this.portada = portada;
         this.presentacion = presentacion;
@@ -117,11 +117,11 @@ public class Libro {
     }
 
     public Date getFechaPublicidad() {
-        return fechaPublicidad;
+        return fechaPublicacion;
     }
 
     public void setFechaPublicidad(Date fechaPublicidad) {
-        this.fechaPublicidad = fechaPublicidad;
+        this.fechaPublicacion = fechaPublicidad;
     }
 
     public String getDescripcion() {
@@ -140,12 +140,12 @@ public class Libro {
         this.tipoPasta = tipoPasta;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getiSBN() {
+        return iSBN;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setiSBN(String isbn) {
+        this.iSBN = isbn;
     }
 
     public int getNumEjemplares() {
@@ -206,10 +206,10 @@ public class Libro {
                 ", numPaginas=" + numPaginas +
                 ", edicion='" + edicion + '\'' +
                 ", idioma='" + idioma + '\'' +
-                ", fechaPublicidad=" + fechaPublicidad +
+                ", fechaPublicidad=" + fechaPublicacion +
                 ", descripcion='" + descripcion + '\'' +
                 ", tipoPasta='" + tipoPasta + '\'' +
-                ", isbn='" + isbn + '\'' +
+                ", isbn='" + iSBN + '\'' +
                 ", numEjemplares=" + numEjemplares +
                 ", portada='" + portada + '\'' +
                 ", presentacion='" + presentacion + '\'' +

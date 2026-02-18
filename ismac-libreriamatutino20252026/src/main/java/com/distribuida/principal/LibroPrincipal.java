@@ -20,7 +20,7 @@ public class LibroPrincipal {
         libro.setFechaPublicidad(new Date());
         libro.setDescripcion("Libro de Cuentos Infantiles");
         libro.setTipoPasta("Rústica");
-        libro.setIsbn("1234567890");
+        libro.setiSBN("1234567890");
         libro.setNumEjemplares(50);
         libro.setPortada("portada.jpg");
         libro.setPresentacion("Tapa blanda");
